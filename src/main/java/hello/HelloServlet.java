@@ -61,6 +61,7 @@ public class HelloServlet extends HttpServlet {
         
         String msg = "";
         
+        
         String lang = request.getParameter("lang");
         if(lang==null)
             lang = "pt";
@@ -77,11 +78,18 @@ public class HelloServlet extends HttpServlet {
         }
         
         String nome = request.getParameter("nome");
+        String sobrenome = request.getParameter("sobrenome");
+        String tel = request.getParameter("telefone");
 
         if(nome==null)
             nome = "Fulano";
+        if(sobrenome==null)
+            sobrenome = "Barboza";
+        if(tel==null)
+            tel = "0000-0000";
         
-        msg = msg+nome+"!";
+        msg = msg+nome+" "+sobrenome+"!";
+        
 
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -94,6 +102,7 @@ public class HelloServlet extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Servlet HelloServlet</h1>");
             out.println("<p>" + msg + "</p>");
+            out.println("<p>telefone para contato:" + tel + "</p>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -132,11 +141,18 @@ public class HelloServlet extends HttpServlet {
         
         String nome = request.getParameter("nome");
 
+        String sobrenome = request.getParameter("sobrenome");
+        String tel = request.getParameter("telefone");
+
         if(nome==null)
             nome = "Fulano";
+        if(sobrenome==null)
+            sobrenome = "Barboza";
+        if(tel==null)
+            tel = "0000-0000";
         
-        msg = msg+nome+"!";
-
+        msg = msg+nome+" "+sobrenome+"!";
+        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -148,6 +164,7 @@ public class HelloServlet extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Servlet HelloServlet</h1>");
             out.println("<p>" + msg + "</p>");
+            out.println("<p>telefone para contato:" + tel + "</p>");
             out.println("</body>");
             out.println("</html>");
         }
